@@ -10,7 +10,10 @@ print(this_directory / "README.rst")
 try:
     long_description = Path("/home/runner/work/django_cityloc_pkg_johnafernandez/README.rst").read_text()
 except:
-    Path(this_directory / "README.rst").read_text()
+    try:
+        long_description = Path(this_directory / "README.rst").read_text()
+    except:
+        long_description = "Yeah, it's not working champ."
 
 
 setup(
